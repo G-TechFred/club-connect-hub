@@ -9,38 +9,175 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WelcomeRouteImport } from './routes/welcome'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as HomeRouteImport } from './routes/home'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
+import { Route as ClubsRouteImport } from './routes/clubs'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ChatClubIdRouteImport } from './routes/chat.$clubId'
 
+const WelcomeRoute = WelcomeRouteImport.update({
+  id: '/welcome',
+  path: '/welcome',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClubsRoute = ClubsRouteImport.update({
+  id: '/clubs',
+  path: '/clubs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ChatClubIdRoute = ChatClubIdRouteImport.update({
+  id: '/chat/$clubId',
+  path: '/chat/$clubId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/clubs': typeof ClubsRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/home': typeof HomeRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/welcome': typeof WelcomeRoute
+  '/chat/$clubId': typeof ChatClubIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/clubs': typeof ClubsRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/home': typeof HomeRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/welcome': typeof WelcomeRoute
+  '/chat/$clubId': typeof ChatClubIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/clubs': typeof ClubsRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/home': typeof HomeRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/welcome': typeof WelcomeRoute
+  '/chat/$clubId': typeof ChatClubIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/clubs'
+    | '/forgot-password'
+    | '/home'
+    | '/login'
+    | '/signup'
+    | '/welcome'
+    | '/chat/$clubId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/clubs'
+    | '/forgot-password'
+    | '/home'
+    | '/login'
+    | '/signup'
+    | '/welcome'
+    | '/chat/$clubId'
+  id:
+    | '__root__'
+    | '/'
+    | '/clubs'
+    | '/forgot-password'
+    | '/home'
+    | '/login'
+    | '/signup'
+    | '/welcome'
+    | '/chat/$clubId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ClubsRoute: typeof ClubsRoute
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
+  HomeRoute: typeof HomeRoute
+  LoginRoute: typeof LoginRoute
+  SignupRoute: typeof SignupRoute
+  WelcomeRoute: typeof WelcomeRoute
+  ChatClubIdRoute: typeof ChatClubIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/welcome': {
+      id: '/welcome'
+      path: '/welcome'
+      fullPath: '/welcome'
+      preLoaderRoute: typeof WelcomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/clubs': {
+      id: '/clubs'
+      path: '/clubs'
+      fullPath: '/clubs'
+      preLoaderRoute: typeof ClubsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +185,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/chat/$clubId': {
+      id: '/chat/$clubId'
+      path: '/chat/$clubId'
+      fullPath: '/chat/$clubId'
+      preLoaderRoute: typeof ChatClubIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ClubsRoute: ClubsRoute,
+  ForgotPasswordRoute: ForgotPasswordRoute,
+  HomeRoute: HomeRoute,
+  LoginRoute: LoginRoute,
+  SignupRoute: SignupRoute,
+  WelcomeRoute: WelcomeRoute,
+  ChatClubIdRoute: ChatClubIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -31,7 +31,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
+      { title: "G-TECH FRED — Community Sports App" },
       { name: "description", content: "Lovable Generated Project" },
       { name: "author", content: "Lovable" },
       { property: "og:title", content: "Lovable App" },
@@ -44,6 +44,14 @@ export const Route = createRootRoute({
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap",
+      },
+      {
+        rel: "icon",
+        href: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚽</text></svg>",
       },
     ],
   }),
